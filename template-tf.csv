@@ -1,0 +1,5 @@
+type,group,statement,answer,explanation
+tf,Week 1,The Earth is the third planet from the Sun.,true,Earth is after Mercury and Venus
+tf,Week 1,Sound travels faster than light.,false,Light travels at 299792458 m/s while sound travels at 343 m/s
+tf,Week 2,Water boils at 100 degrees Celsius at sea level.,true,At standard atmospheric pressure (1 atm)
+tf,Week 2,Humans have 206 bones as adults.,true,Babies are born with around 270 bones that fuse over time

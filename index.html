@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Study Buddy — Study Smarter, Not Harder</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Boogaloo&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#7C3AED;--purple-light:#EDE9FE;--purple-dark:#5B21B6;
+  --yellow:#FCD34D;--yellow-dark:#F59E0B;
+  --coral:#F97316;--coral-light:#FFF7ED;
+  --teal:#14B8A6;--teal-light:#CCFBF1;
+  --green:#22C55E;--green-light:#DCFCE7;
+  --bg:#FFFBF0;--text:#1C1917;--muted:#78716C;--border:#E7E5E4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:white;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;}
+.logo{font-family:'Boogaloo',cursive;font-size:1.8rem;color:var(--purple);display:flex;align-items:center;gap:0.5rem;text-decoration:none;}
+.logo-icon{width:36px;height:36px;background:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:2px solid var(--yellow-dark);transform:rotate(-5deg);}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--muted);font-weight:700;font-size:0.95rem;transition:color 0.2s;}
+.nav-links a:hover{color:var(--purple);}
+.nav-cta{display:flex;gap:0.75rem;align-items:center;}
+.btn{padding:0.55rem 1.3rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;cursor:pointer;border:2px solid transparent;transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;}
+.btn-outline{background:transparent;border-color:var(--purple);color:var(--purple);}
+.btn-outline:hover{background:var(--purple-light);}
+.btn-primary{background:var(--purple);color:white;border-color:var(--purple-dark);box-shadow:0 3px 0 var(--purple-dark);}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 0 var(--purple-dark);}
+.btn-yellow{background:var(--yellow);color:#78350F;border-color:var(--yellow-dark);box-shadow:0 4px 0 var(--yellow-dark);font-size:1.1rem;padding:0.8rem 2rem;}
+.btn-yellow:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--yellow-dark);}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,#EDE9FE 0%,transparent 70%);pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.4rem;background:var(--yellow);border:2px solid var(--yellow-dark);border-radius:50px;padding:0.3rem 1rem;font-size:0.85rem;font-weight:800;color:#78350F;margin-bottom:1.5rem;animation:bounce-in 0.6s ease;}
+@keyframes bounce-in{0%{transform:scale(0.8);opacity:0}70%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+.hero h1{font-family:'Boogaloo',cursive;font-size:clamp(2.8rem,7vw,5rem);line-height:1.1;margin-bottom:1rem;animation:slide-up 0.7s ease 0.1s both;}
+.hero h1 span{color:var(--purple);position:relative;display:inline-block;}
+.hero h1 span::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:6px;background:var(--yellow);border-radius:3px;z-index:-1;}
+@keyframes slide-up{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.hero p{font-size:1.2rem;color:var(--muted);max-width:560px;margin:0 auto 2.5rem;line-height:1.7;font-weight:600;animation:slide-up 0.7s ease 0.2s both;}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:slide-up 0.7s ease 0.3s both;}
+.hero-subtext{margin-top:1rem;font-size:0.85rem;color:var(--muted);font-weight:600;}
+
+/* APP MOCKUP */
+.app-mockup{max-width:440px;margin:3rem auto 0;background:white;border:3px solid var(--border);border-radius:28px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.12),0 8px 0 var(--border);animation:slide-up 0.7s ease 0.4s both;}
+.mockup-topbar{background:var(--purple);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.m-logo{font-family:'Boogaloo',cursive;color:white;font-size:1.3rem;}
+.timer-pill{background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;padding:0.3rem 0.8rem;color:white;font-size:0.85rem;font-weight:800;display:flex;align-items:center;gap:0.4rem;}
+.timer-dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);animation:pulse 1.2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+.mockup-body{padding:1.2rem 1.5rem;}
+.mockup-deck-label{font-size:0.75rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.8rem;}
+.mockup-flashcard{background:linear-gradient(135deg,var(--purple-light),#F5F3FF);border:2px solid #DDD6FE;border-radius:20px;padding:2rem;text-align:center;margin-bottom:1rem;cursor:pointer;transition:all 0.3s;}
+.q-label{font-size:0.7rem;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem;}
+.q-text{font-weight:800;font-size:1rem;line-height:1.5;}
+.mockup-progress{height:8px;background:var(--border);border-radius:50px;margin-bottom:1rem;overflow:hidden;}
+.mockup-progress-fill{height:100%;width:45%;background:var(--purple);border-radius:50px;animation:grow 1.5s ease 0.5s both;}
+@keyframes grow{from{width:0}to{width:45%}}
+.mockup-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;}
+.m-btn{border-radius:12px;padding:0.7rem 0.5rem;text-align:center;font-size:0.75rem;font-weight:800;border:2px solid transparent;cursor:pointer;transition:all 0.15s;}
+.m-btn.wrong{background:#FEF2F2;border-color:#FECACA;color:#DC2626;}
+.m-btn.skip{background:var(--bg);border-color:var(--border);color:var(--muted);}
+.m-btn.correct{background:#F0FDF4;border-color:#BBF7D0;color:#16A34A;}
+
+/* STATS BAND */
+.stats-band{background:var(--purple);color:white;padding:2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;margin:3rem 0;}
+.stat-item{text-align:center;}
+.stat-number{font-family:'Boogaloo',cursive;font-size:2.5rem;color:var(--yellow);}
+.stat-label{font-size:0.9rem;font-weight:700;opacity:0.85;margin-top:0.2rem;}
+
+/* SECTION */
+.section{padding:4rem 2rem;max-width:1100px;margin:0 auto;}
+.section-title{font-family:'Boogaloo',cursive;font-size:2.5rem;text-align:center;margin-bottom:0.5rem;}
+.section-sub{text-align:center;color:var(--muted);font-weight:600;margin-bottom:3rem;}
+
+/* HOW IT WORKS */
+.steps-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}
+.step{text-align:center;padding:1.5rem;}
+.step-num{width:52px;height:52px;border-radius:50%;background:var(--purple);color:white;font-family:'Boogaloo',cursive;font-size:1.6rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;border:3px solid var(--purple-dark);box-shadow:0 4px 0 var(--purple-dark);}
+.step h3{font-weight:800;font-size:1rem;margin-bottom:0.4rem;}
+.step p{font-size:0.85rem;color:var(--muted);font-weight:600;line-height:1.5;}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.feature-card{background:white;border:2px solid var(--border);border-radius:20px;padding:1.8rem;position:relative;transition:all 0.2s;box-shadow:0 4px 0 var(--border);}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 8px 0 var(--border);}
+.feature-icon{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;border:2px solid transparent;}
+.feature-card h3{font-size:1.1rem;font-weight:800;margin-bottom:0.5rem;}
+.feature-card p{font-size:0.9rem;color:var(--muted);font-weight:600;line-height:1.6;}
+.badge{position:absolute;top:1rem;right:1rem;font-size:0.7rem;font-weight:800;padding:0.2rem 0.6rem;border-radius:50px;text-transform:uppercase;}
+
+/* KEYBOARD SHORTCUTS PREVIEW */
+.shortcuts-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.8rem;max-width:700px;margin:0 auto;}
+.shortcut-chip{background:white;border:2px solid var(--border);border-radius:14px;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:0.8rem;}
+.kbd{background:var(--bg);border:2px solid var(--border);border-bottom:3px solid #C8C4BC;border-radius:8px;padding:0.2rem 0.6rem;font-family:'Boogaloo',cursive;font-size:1rem;color:var(--text);min-width:32px;text-align:center;}
+.shortcut-desc{font-size:0.82rem;font-weight:700;color:var(--muted);}
+
+/* POMODORO */
+.pomo-preview{background:white;border:2px solid var(--border);border-radius:24px;padding:2.5rem;max-width:400px;margin:0 auto;text-align:center;box-shadow:0 4px 0 var(--border);}
+.pomo-phase-badge{display:inline-block;border-radius:50px;font-size:0.78rem;font-weight:800;padding:0.25rem 0.9rem;margin-bottom:1rem;border:1.5px solid transparent;}
+.pomo-ring-wrap{position:relative;width:160px;height:160px;margin:0 auto 1.2rem;}
+.pomo-svg{width:160px;height:160px;transform:rotate(-90deg);}
+.pomo-track{fill:none;stroke:#F3F4F6;stroke-width:12;}
+.pomo-fill{fill:none;stroke-width:12;stroke-linecap:round;}
+.pomo-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.pomo-time{font-family:'Boogaloo',cursive;font-size:2.4rem;color:var(--text);line-height:1;}
+.pomo-sublabel{font-size:0.72rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-top:2px;}
+.pomo-sessions{display:flex;gap:0.4rem;justify-content:center;margin:0.8rem 0;}
+.pomo-dot{width:10px;height:10px;border-radius:50%;background:var(--border);transition:background 0.3s;}
+.pomo-dot.done{background:var(--coral);}
+.pomo-controls{display:flex;gap:0.8rem;justify-content:center;margin-top:1rem;}
+.pomo-btn{width:44px;height:44px;border-radius:50%;border:2px solid var(--border);background:white;font-size:1rem;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+.pomo-btn:hover{background:var(--bg);}
+.pomo-btn.main{width:56px;height:56px;background:var(--purple);border-color:var(--purple-dark);color:white;font-size:1.2rem;box-shadow:0 3px 0 var(--purple-dark);}
+.pomo-btn.main:hover{transform:translateY(-1px);}
+
+/* CARD TYPES */
+.card-types-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+.card-type{border-radius:16px;padding:1.4rem;border:2px solid transparent;cursor:pointer;transition:transform 0.15s;}
+.card-type:hover{transform:scale(1.02);}
+.ct-label{font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem;opacity:0.7;}
+.ct-q{font-weight:800;font-size:0.95rem;margin-bottom:0.8rem;line-height:1.4;}
+.flip-area{perspective:800px;height:80px;position:relative;}
+.flip-front,.flip-back{position:absolute;inset:0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;backface-visibility:hidden;transition:transform 0.5s;border:2px solid transparent;padding:0.5rem;text-align:center;}
+.flip-back{transform:rotateY(180deg);}
+.card-type.flipped .flip-front{transform:rotateY(180deg);}
+.card-type.flipped .flip-back{transform:rotateY(0);}
+.tf-row{display:flex;gap:0.5rem;}
+.tf-btn{padding:0.4rem 1.2rem;border-radius:50px;font-size:0.85rem;font-weight:800;border:2px solid transparent;cursor:pointer;transition:all 0.2s;}
+.choice-pill{padding:0.35rem 0.8rem;border-radius:50px;font-size:0.8rem;font-weight:700;border:2px solid transparent;display:inline-block;width:fit-content;margin-bottom:0.3rem;cursor:pointer;}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;align-items:start;}
+.pricing-card{background:white;border:2px solid var(--border);border-radius:24px;padding:2rem;position:relative;box-shadow:0 4px 0 var(--border);}
+.pricing-card.featured{border-color:var(--purple);box-shadow:0 4px 0 var(--purple-dark);transform:scale(1.03);}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--yellow);border:2px solid var(--yellow-dark);color:#78350F;font-size:0.75rem;font-weight:800;padding:0.2rem 1rem;border-radius:50px;white-space:nowrap;}
+.plan-name{font-family:'Boogaloo',cursive;font-size:1.6rem;margin-bottom:0.3rem;}
+.plan-price{font-family:'Boogaloo',cursive;font-size:3rem;color:var(--purple);line-height:1;margin:0.8rem 0 0.2rem;}
+.plan-price span{font-size:1.2rem;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;}
+.plan-desc{font-size:0.85rem;color:var(--muted);font-weight:600;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:2px dashed var(--border);}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:1.8rem;}
+.plan-features li{display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;}
+.check{color:var(--green);}.cross{color:#D1D5DB;}
+
+/* CTA */
+.cta-section{background:var(--purple);border-radius:24px;padding:4rem 2rem;text-align:center;margin:2rem;position:relative;overflow:hidden;}
+.cta-section::before{content:'📚';position:absolute;top:-20px;left:5%;font-size:5rem;opacity:0.15;}
+.cta-section::after{content:'✏️';position:absolute;bottom:-10px;right:5%;font-size:5rem;opacity:0.15;}
+.cta-section h2{font-family:'Boogaloo',cursive;font-size:2.5rem;color:white;margin-bottom:0.8rem;}
+.cta-section p{color:rgba(255,255,255,0.8);font-weight:600;margin-bottom:2rem;}
+
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.85rem;font-weight:600;border-top:2px solid var(--border);}
+
+@media(max-width:600px){.nav-links{display:none;}.hero{padding:3rem 1rem 2rem;}.stats-band{gap:2rem;}.pricing-card.featured{transform:none;}.cta-section{margin:1rem;}}
+</style>
+</head>
+<body>
+
+<div style="background:#5B21B6;color:white;text-align:center;padding:0.45rem 1rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;display:flex;align-items:center;justify-content:center;gap:0.8rem;flex-wrap:wrap;">&#129514; Beta Release &#8212; You're an early user! <a href="mailto:YOUR_EMAIL@HERE.com" style="color:#FCD34D;font-weight:800;text-decoration:none;">Send feedback &#8594;</a></div>
+
+<nav>
+  <a href="#" class="logo"><div class="logo-icon">📖</div>My Study Buddy</a>
+  <ul class="nav-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#cards">Card Types</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="app.html" class="btn btn-outline">Log in</a>
+    <a href="app.html" class="btn btn-primary">✨ Get started free</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">🎉 100% Free to start — No credit card needed</div>
+  <h1>Study smarter with<br><span>My Study Buddy</span></h1>
+  <p>Flashcards, quizzes, and a built-in Pomodoro timer — everything you need to ace your next exam in one place.</p>
+  <div class="hero-cta">
+    <a href="app.html" class="btn btn-yellow">🚀 Start studying for free</a>
+    <a href="#how" class="btn btn-outline">See how it works</a>
+  </div>
+  <p class="hero-subtext">✓ No signup required to try &nbsp;·&nbsp; ✓ Export your decks &nbsp;·&nbsp; ✓ Works on any device</p>
+
+  <div class="app-mockup">
+    <div class="mockup-topbar">
+      <span class="m-logo">📖 My Study Buddy</span>
+      <div class="timer-pill"><div class="timer-dot"></div><span id="heroTimer">23:41</span></div>
+    </div>
+    <div class="mockup-body">
+      <div class="mockup-deck-label">📂 Biology — Chapter 4 · Card 5 of 12</div>
+      <div class="mockup-progress"><div class="mockup-progress-fill"></div></div>
+      <div class="mockup-flashcard" id="heroCard" onclick="flipHeroCard()">
+        <div class="q-label" id="heroCardLabel">Question — tap to flip</div>
+        <div class="q-text" id="heroCardText">What is the powerhouse of the cell?</div>
+      </div>
+      <div class="mockup-actions">
+        <div class="m-btn wrong">✗ Wrong</div>
+        <div class="m-btn skip">↷ Skip</div>
+        <div class="m-btn correct">✓ Correct</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="stat-item"><div class="stat-number">&#9733;</div><div class="stat-label">Students studying</div></div>
+  <div class="stat-item"><div class="stat-number">2M+</div><div class="stat-label">Flashcards created</div></div>
+  <div class="stat-item"><div class="stat-number">4</div><div class="stat-label">Question types</div></div>
+  <div class="stat-item"><div class="stat-number">🍅 ∞</div><div class="stat-label">Pomodoros logged</div></div>
+</div>
+
+<section class="section" id="how">
+  <h2 class="section-title">How it works 🎯</h2>
+  <p class="section-sub">From zero to exam-ready in four simple steps.</p>
+  <div class="steps-row">
+    <div class="step"><div class="step-num">1</div><h3>Create a Deck</h3><p>Name your deck, pick a subject, icon and color. Organize by class, chapter, or topic.</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Add Your Cards</h3><p>Add Q&A, True/False, Multiple Choice, or Fill-in-the-blank cards. Group them by topic.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Start a Session</h3><p>Start studying and the Pomodoro timer kicks in. Choose to shuffle, study by group, or review missed cards only.</p></div>
+    <div class="step"><div class="step-num">4</div><h3>Track Progress</h3><p>See your score, accuracy %, and streak. Know exactly which cards to revisit.</p></div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <h2 class="section-title">Everything you need to study 🧠</h2>
+  <p class="section-sub">Built for students who want results, not distractions.</p>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon" style="background:#EDE9FE;border-color:#DDD6FE;">📇</div><h3>Smart Flashcards</h3><p>4 question types with group organization. Study a full deck or drill one topic at a time.</p></div>
+    <div class="feature-card"><div class="feature-icon" style="background:#FFF7ED;border-color:#FED7AA;">🍅</div><h3>Pomodoro Timer</h3><p>Built-in focus timer runs alongside study sessions. 25 min work, 5 min break — fully customizable.</p><span class="badge" style="background:#FFF7ED;color:#EA580C;border:1.5px solid #FED7AA;">Built in</span></div>
+    <div class="feature-card"><div class="feature-icon" style="background:#DCFCE7;border-color:#BBF7D0;">📤</div><h3>Export Your Decks</h3><p>Export any deck as a printable PDF quiz sheet or CSV to share with classmates.</p><span class="badge" style="background:#EDE9FE;color:#7C3AED;border:1.5px solid #DDD6FE;">Pro</span></div>
+    <div class="feature-card"><div class="feature-icon" style="background:#EFF6FF;border-color:#BFDBFE;">📊</div><h3>Study Stats</h3><p>Track accuracy per deck, study streaks, and Pomodoro sessions completed over time.</p></div>
+    <div class="feature-card"><div class="feature-icon" style="background:#FDF2F8;border-color:#FBCFE8;">🔗</div><h3>Share Decks</h3><p>Generate a shareable link to any deck — perfect for study groups and classmates.</p><span class="badge" style="background:#EDE9FE;color:#7C3AED;border:1.5px solid #DDD6FE;">Pro</span></div>
+    <div class="feature-card"><div class="feature-icon" style="background:#FFF7ED;border-color:#FED7AA;">⌨️</div><h3>Keyboard Shortcuts</h3><p>Space to flip, arrow keys to mark correct or wrong. Keep your hands off the mouse while studying.</p></div>
+  </div>
+</section>
+
+<!-- KEYBOARD SHORTCUTS -->
+<section class="section">
+  <h2 class="section-title">Study at full speed ⌨️</h2>
+  <p class="section-sub">Keyboard shortcuts keep you in flow — no clicking around.</p>
+  <div class="shortcuts-row">
+    <div class="shortcut-chip"><div class="kbd">Space</div><div class="shortcut-desc">Flip card / reveal answer</div></div>
+    <div class="shortcut-chip"><div class="kbd">→</div><div class="shortcut-desc">Mark correct &amp; next</div></div>
+    <div class="shortcut-chip"><div class="kbd">←</div><div class="shortcut-desc">Mark wrong &amp; next</div></div>
+    <div class="shortcut-chip"><div class="kbd">↓</div><div class="shortcut-desc">Skip this card</div></div>
+    <div class="shortcut-chip"><div class="kbd">P</div><div class="shortcut-desc">Pause / resume timer</div></div>
+    <div class="shortcut-chip"><div class="kbd">Esc</div><div class="shortcut-desc">Exit study session</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Built-in Pomodoro Timer 🍅</h2>
+  <p class="section-sub">The proven focus technique — right inside your study session. No tab switching.</p>
+  <div class="pomo-preview">
+    <div class="pomo-phase-badge" id="pomoPhase" style="background:var(--coral-light);color:var(--coral);border-color:#FED7AA;">🧠 Focus Session</div>
+    <div class="pomo-ring-wrap">
+      <svg class="pomo-svg" viewBox="0 0 160 160">
+        <circle class="pomo-track" cx="80" cy="80" r="66"/>
+        <circle class="pomo-fill" id="pomoRing" cx="80" cy="80" r="66" style="stroke:var(--coral);stroke-dasharray:414.69;stroke-dashoffset:0;"/>
+      </svg>
+      <div class="pomo-center">
+        <div class="pomo-time" id="pomoDisplay">25:00</div>
+        <div class="pomo-sublabel" id="pomoLbl">Focus</div>
+      </div>
+    </div>
+    <div style="font-size:0.82rem;color:var(--muted);font-weight:600;">Session 1 of 4</div>
+    <div class="pomo-sessions">
+      <div class="pomo-dot done"></div>
+      <div class="pomo-dot"></div>
+      <div class="pomo-dot"></div>
+      <div class="pomo-dot"></div>
+    </div>
+    <div class="pomo-controls">
+      <button class="pomo-btn" onclick="resetPomo()">↺</button>
+      <button class="pomo-btn main" id="pomoPlayBtn" onclick="togglePomo()">▶</button>
+      <button class="pomo-btn" onclick="skipPhase()">⏭</button>
+    </div>
+    <p style="font-size:0.75rem;color:var(--muted);font-weight:600;margin-top:1rem;">Customizable intervals · Audio alerts · Session tracking</p>
+  </div>
+</section>
+
+<section class="section" id="cards">
+  <h2 class="section-title">4 ways to quiz yourself 🃏</h2>
+  <p class="section-sub">Different card types for different kinds of knowledge.</p>
+  <div class="card-types-row">
+    <div class="card-type" style="background:#EDE9FE;border-color:#DDD6FE;" onclick="this.classList.toggle('flipped')">
+      <div class="ct-label" style="color:#7C3AED;">Basic Q&A — Tap to flip</div>
+      <div class="flip-area">
+        <div class="flip-front" style="background:#DDD6FE;border-color:#C4B5FD;color:#5B21B6;">What is the powerhouse of the cell?</div>
+        <div class="flip-back" style="background:#7C3AED;border-color:#6D28D9;color:white;">The Mitochondria ⚡</div>
+      </div>
+    </div>
+    <div class="card-type" style="background:#FFF7ED;border-color:#FED7AA;">
+      <div class="ct-label" style="color:#EA580C;">True / False</div>
+      <div class="ct-q" style="color:#7C2D12;">The Earth is the 3rd planet from the Sun.</div>
+      <div class="tf-row">
+        <button class="tf-btn" style="background:#DCFCE7;border-color:#86EFAC;color:#16A34A;" onclick="this.style.background='#16A34A';this.style.color='white'">✓ True</button>
+        <button class="tf-btn" style="background:#FEF2F2;border-color:#FECACA;color:#DC2626;">✗ False</button>
+      </div>
+    </div>
+    <div class="card-type" style="background:#EFF6FF;border-color:#BFDBFE;">
+      <div class="ct-label" style="color:#2563EB;">Multiple Choice</div>
+      <div class="ct-q" style="color:#1E3A8A;">Who wrote Romeo and Juliet?</div>
+      <div>
+        <div class="choice-pill" style="background:#DBEAFE;border-color:#93C5FD;color:#1D4ED8;" onclick="this.style.background='#FEF2F2';this.style.borderColor='#FECACA';this.style.color='#DC2626'">A. Charles Dickens</div>
+        <div class="choice-pill" style="background:#DBEAFE;border-color:#93C5FD;color:#1D4ED8;" onclick="this.style.background='#DCFCE7';this.style.borderColor='#86EFAC';this.style.color='#16A34A'">B. William Shakespeare ✓</div>
+        <div class="choice-pill" style="background:#DBEAFE;border-color:#93C5FD;color:#1D4ED8;">C. Jane Austen</div>
+      </div>
+    </div>
+    <div class="card-type" style="background:#F0FDF4;border-color:#BBF7D0;">
+      <div class="ct-label" style="color:#16A34A;">Fill in the Blank</div>
+      <div class="ct-q" style="color:#14532D;">Photosynthesis converts sunlight into ______.</div>
+      <input type="text" placeholder="Type your answer..." style="width:100%;padding:0.5rem 0.8rem;border-radius:10px;border:2px solid #86EFAC;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;background:white;color:#166534;outline:none;">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <h2 class="section-title">Simple, honest pricing 💰</h2>
+  <p class="section-sub">Start free. Upgrade when you're ready.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="plan-name">🆓 Free</div>
+      <p style="color:var(--muted);font-weight:600;font-size:0.85rem;">Perfect for getting started</p>
+      <div class="plan-price">$0<span>/mo</span></div>
+      <p class="plan-desc">Forever free. No credit card required.</p>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Up to 5 decks</li>
+        <li><span class="check">✓</span> 15 cards per deck</li>
+        <li><span class="check">✓</span> 5 question groups per deck</li>
+        <li><span class="check">✓</span> Basic Q&A cards only</li>
+        <li><span class="check">✓</span> Pomodoro timer</li>
+        <li><span class="check">✓</span> Keyboard shortcuts</li>
+        <li><span class="check">✓</span> Basic session stats</li>
+        <li><span class="cross">✗</span> True/False, MCQ, Fill in Blank</li>
+        <li><span class="cross">✗</span> PDF / CSV export</li>
+        <li><span class="cross">✗</span> Shareable deck links</li>
+        <li><span class="cross">✗</span> Study streaks</li>
+      </ul>
+      <a href="app.html" class="btn btn-outline" style="width:100%;justify-content:center;padding:0.75rem;">Get started free</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="popular-badge">⭐ Most Popular</div>
+      <div class="plan-name" style="color:var(--purple)">⭐ Pro</div>
+      <p style="color:var(--muted);font-weight:600;font-size:0.85rem;">For serious students</p>
+      <div class="plan-price">$4.99<span>/mo</span></div>
+      <p class="plan-desc">Billed monthly. Cancel anytime.</p>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Unlimited decks</li>
+        <li><span class="check">✓</span> Unlimited cards per deck</li>
+        <li><span class="check">✓</span> Unlimited question groups</li>
+        <li><span class="check">✓</span> All 4 card types</li>
+        <li><span class="check">✓</span> Pomodoro timer</li>
+        <li><span class="check">✓</span> Advanced stats &amp; streaks</li>
+        <li><span class="check">✓</span> PDF &amp; CSV export</li>
+        <li><span class="check">✓</span> Shareable deck links</li>
+      </ul>
+      <a href="app.html" class="btn btn-primary" style="width:100%;justify-content:center;padding:0.75rem;">Upgrade to Pro</a>
+    </div>
+    <div class="pricing-card">
+      <div class="plan-name">🏫 Teams</div>
+      <p style="color:var(--muted);font-weight:600;font-size:0.85rem;">For classrooms &amp; groups</p>
+      <div class="plan-price">$12.99<span>/mo</span></div>
+      <p class="plan-desc">Per teacher. Up to 30 students included.</p>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Everything in Pro</li>
+        <li><span class="check">✓</span> Collaborative decks</li>
+        <li><span class="check">✓</span> Class progress dashboard</li>
+        <li><span class="check">✓</span> Custom branding</li>
+        <li><span class="check">✓</span> Priority support</li>
+        <li><span class="check">✓</span> Student accounts (up to 30)</li>
+        <li><span class="check">✓</span> Bulk deck import</li>
+        <li><span class="check">✓</span> Admin controls</li>
+      </ul>
+      <a href="#" class="btn btn-outline" style="width:100%;justify-content:center;padding:0.75rem;">Contact us</a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section">
+  <h2>Ready to ace your next exam? 🎓</h2>
+  <p>Join thousands of students already studying smarter with My Study Buddy.</p>
+  <a href="app.html" class="btn btn-yellow">🚀 Start for free — no signup needed</a>
+</div>
+
+<footer>
+  <p>Made with ❤️ for students everywhere &nbsp;·&nbsp; © 2026 My Study Buddy &nbsp;·&nbsp; <a href="#" style="color:var(--purple)">Privacy</a> &nbsp;·&nbsp; <a href="#" style="color:var(--purple)">Terms</a></p>
+</footer>
+
+<script>
+// Hero card flip
+let heroFlipped=false;
+function flipHeroCard(){
+  const card=document.getElementById('heroCard'),lbl=document.getElementById('heroCardLabel'),txt=document.getElementById('heroCardText');
+  heroFlipped=!heroFlipped;
+  if(heroFlipped){lbl.textContent='Answer';txt.textContent='The Mitochondria ⚡';card.style.background='linear-gradient(135deg,#7C3AED,#5B21B6)';card.style.borderColor='#6D28D9';txt.style.color='white';lbl.style.color='#DDD6FE';}
+  else{lbl.textContent='Question — tap to flip';txt.textContent='What is the powerhouse of the cell?';card.style.background='';card.style.borderColor='';txt.style.color='';lbl.style.color='';}
+}
+// Hero timer countdown
+let heroSecs=23*60+41;
+setInterval(()=>{heroSecs=Math.max(0,heroSecs-1);const m=Math.floor(heroSecs/60),s=heroSecs%60;document.getElementById('heroTimer').textContent=`${m}:${s.toString().padStart(2,'0')}`;},1000);
+
+// Pomodoro — circumference for r=66: 2*PI*66 = 414.69
+const FOCUS=25*60,BREAK=5*60,C=2*Math.PI*66;
+let pomoSecs=FOCUS,pomoRunning=false,pomoPhase='focus',pomoInt;
+function updatePomo(){
+  const m=Math.floor(pomoSecs/60),s=pomoSecs%60;
+  document.getElementById('pomoDisplay').textContent=`${m}:${s.toString().padStart(2,'0')}`;
+  const total=pomoPhase==='focus'?FOCUS:BREAK,pct=pomoSecs/total;
+  const ring=document.getElementById('pomoRing');
+  ring.style.strokeDashoffset=C*(1-pct);
+  ring.style.stroke=pomoPhase==='focus'?'var(--coral)':'var(--teal)';
+  const ph=document.getElementById('pomoPhase');
+  ph.textContent=pomoPhase==='focus'?'🧠 Focus Session':'☕ Break Time';
+  ph.style.background=pomoPhase==='focus'?'var(--coral-light)':'var(--teal-light)';
+  ph.style.color=pomoPhase==='focus'?'var(--coral)':'var(--teal)';
+  ph.style.borderColor=pomoPhase==='focus'?'#FED7AA':'#99F6E4';
+  document.getElementById('pomoLbl').textContent=pomoPhase==='focus'?'Focus':'Break';
+}
+function togglePomo(){
+  pomoRunning=!pomoRunning;
+  document.getElementById('pomoPlayBtn').textContent=pomoRunning?'⏸':'▶';
+  if(pomoRunning)pomoInt=setInterval(()=>{if(pomoSecs>0){pomoSecs--;updatePomo();}else skipPhase();},1000);
+  else clearInterval(pomoInt);
+}
+function skipPhase(){
+  clearInterval(pomoInt);pomoRunning=false;document.getElementById('pomoPlayBtn').textContent='▶';
+  pomoPhase=pomoPhase==='focus'?'break':'focus';pomoSecs=pomoPhase==='focus'?FOCUS:BREAK;updatePomo();
+}
+function resetPomo(){
+  clearInterval(pomoInt);pomoRunning=false;document.getElementById('pomoPlayBtn').textContent='▶';
+  pomoPhase='focus';pomoSecs=FOCUS;updatePomo();
+}
+updatePomo();
+</script>
+
+<!-- BETA NOTICE MODAL -->
+<div id="betaOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity 0.35s;">
+  <div id="betaModal" style="background:white;border-radius:24px;width:100%;max-width:520px;overflow:hidden;border:2px solid #E7E5E4;box-shadow:0 24px 48px rgba(0,0,0,0.18);transform:scale(0.92) translateY(16px);transition:transform 0.35s;">
+    <div style="background:#7C3AED;padding:1.4rem 1.8rem 1.2rem;position:relative;">
+      <div style="font-size:1.8rem;margin-bottom:0.5rem;">&#128679;</div>
+      <div style="font-family:'Boogaloo',cursive;font-size:1.7rem;color:white;line-height:1.1;">Beta Release Notice</div>
+      <button onclick="closeBetaModal()" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.35);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;color:white;display:flex;align-items:center;justify-content:center;line-height:1;">&#x2715;</button>
+    </div>
+    <div style="background:#FCD34D;padding:0.5rem 1.8rem;border-bottom:2px solid #F59E0B;">
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.82rem;color:#78350F;">&#10024; Thanks for being an early user &#8212; your feedback shapes what we build!</span>
+    </div>
+    <div style="padding:1.6rem 1.8rem;">
+      <p style="font-size:0.95rem;font-weight:600;color:#1C1917;line-height:1.75;margin-bottom:1rem;">Welcome to our Beta launch! We&#8217;re excited to give you early access while we continue building and refining the experience.</p>
+      <p style="font-size:0.9rem;font-weight:600;color:#78716C;line-height:1.75;margin-bottom:1rem;">While many features are already available, you may notice that some links, pages, or functionality are still in development and may not work as expected. We&#8217;re actively working to complete these areas and improve overall performance.</p>
+      <p style="font-size:0.9rem;font-weight:600;color:#78716C;line-height:1.75;margin-bottom:1rem;">Your feedback during this beta phase is incredibly valuable and helps us shape the final experience. We appreciate your patience as we continue to enhance the site.</p>
+      <p style="font-size:0.9rem;font-weight:700;color:#1C1917;line-height:1.75;">Thank you for being an early user and helping us build something great.</p>
+      <div style="height:1px;background:#E7E5E4;margin:1.4rem 0;"></div>
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center;">
+        <button onclick="closeBetaModal()" style="background:#7C3AED;color:white;border:2px solid #5B21B6;border-radius:50px;padding:0.65rem 1.5rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;cursor:pointer;box-shadow:0 3px 0 #5B21B6;">Got it &#8212; let&#8217;s go! &#128640;</button>
+        <a href="mailto:YOUR_EMAIL@HERE.com" style="background:transparent;color:#7C3AED;border:2px solid #7C3AED;border-radius:50px;padding:0.65rem 1.2rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">&#9993;&#65039; Send feedback</a>
+      </div>
+      <p style="margin-top:1rem;font-size:0.72rem;color:#78716C;font-weight:600;">Click anywhere outside this notice or press Esc to close.</p>
+    </div>
+  </div>
+</div>
+<script>
+function openBetaModal(){
+  var ov=document.getElementById('betaOverlay');
+  var mo=document.getElementById('betaModal');
+  ov.style.display='flex';
+  requestAnimationFrame(function(){ov.style.opacity='1';mo.style.transform='scale(1) translateY(0)';});
+}
+function closeBetaModal(){
+  var ov=document.getElementById('betaOverlay');
+  var mo=document.getElementById('betaModal');
+  ov.style.opacity='0';mo.style.transform='scale(0.92) translateY(16px)';
+  setTimeout(function(){ov.style.display='none';},350);
+}
+document.getElementById('betaOverlay').addEventListener('click',function(e){if(e.target===this)closeBetaModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBetaModal();});
+window.addEventListener('load',function(){setTimeout(openBetaModal,400);});
+</script>
+</body>
+</html>
