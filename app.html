@@ -340,7 +340,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
   </div>
   <div class="topbar-right">
     <div class="free-badge">✓ Always Free</div>
-    <div class="avatar">&#128100;</div>
+    <div class="avatar">MS</div>
   </div>
 </div>
 
@@ -557,6 +557,12 @@ tf,Ch1,,,,,,,,true,The Earth is round.,
 mcq,Ch2,Who wrote Hamlet?,,Shakespeare,Dickens,Austen,Marlowe,A,,
 fitb,Ch2,,,,,,,,,The ___ is the powerhouse.,mitochondria</div>
     </div>
+  </div>
+
+  <div style="background:white;border:2px solid var(--border);border-radius:20px;padding:1.5rem;max-width:500px;margin-top:1.5rem;">
+    <h3 style="font-weight:800;margin-bottom:0.5rem;">&#128197; Your Data</h3>
+    <p style="font-size:0.85rem;color:var(--muted);font-weight:600;margin-bottom:1rem;">Your decks are saved automatically in your browser. Clearing will permanently delete all decks, cards, and session history from this device.</p>
+    <button class="btn btn-danger" onclick="clearAllData()">&#128465;&#65039; Clear all my data</button>
   </div>
 
   <!-- STATS VIEW -->
@@ -888,21 +894,21 @@ function saveDeck(){
   if(editingDeckId){
     const deck=decks.find(d=>d.id===editingDeckId);
     if(deck){deck.name=name;deck.emoji=selectedEmoji;deck.color=selectedColor;deck.subject=document.getElementById('deckSubject').value;}
-    closeModal('newDeckModal');renderDecks();
+    saveData();closeModal('newDeckModal');renderDecks();
     if(currentDeckId===editingDeckId)renderDeckDetail();
     showToast('✓ Deck updated!','green');return;
   }
   decks.push({id:Date.now().toString(),name,emoji:selectedEmoji,color:selectedColor,subject:document.getElementById('deckSubject').value,cards:[],createdAt:Date.now()});
-  closeModal('newDeckModal');renderDecks();showToast('✓ Deck created!','green');
+  saveData();closeModal('newDeckModal');renderDecks();showToast('✓ Deck created!','green');
 }
 function deleteDeck(id){
   if(!confirm('Delete this deck and all its cards?'))return;
-  decks=decks.filter(d=>d.id!==id);renderDecks();showToast('Deck deleted.','red');
+  decks=decks.filter(d=>d.id!==id);saveData();renderDecks();showToast('Deck deleted.','red');
 }
 function duplicateDeck(id){
   const src=decks.find(d=>d.id===id);if(!src)return;
   decks.push({...src,id:Date.now().toString(),name:src.name+' (Copy)',createdAt:Date.now(),cards:src.cards.map(c=>({...c,id:Date.now().toString()+Math.random()}))});
-  renderDecks();showToast('✓ Deck duplicated!','green');
+  saveData();renderDecks();showToast('✓ Deck duplicated!','green');
 }
 
 // ════════════════════════════════
@@ -1025,7 +1031,7 @@ function renderCardsList(deck){
 function deleteCard(cid){
   const deck=decks.find(d=>d.id===currentDeckId);if(!deck)return;
   deck.cards=deck.cards.filter(c=>c.id!==cid);
-  renderDeckDetail();showToast('Card removed.','red');
+  saveData();renderDeckDetail();showToast('Card removed.','red');
 }
 
 // ════════════════════════════════
@@ -1106,7 +1112,7 @@ function saveCard(){
     if(!valid)return;card.sentence=s;card.answer=a;
   }
   if(!editingCardId)deck.cards.push(card);
-  closeModal('addCardModal');renderDeckDetail();
+  saveData();closeModal('addCardModal');renderDeckDetail();
   showToast(editingCardId?'✓ Card updated!':'✓ Card added!','green');
 }
 
@@ -1242,7 +1248,7 @@ function checkURLImport(){
       const existing=decks.find(d=>d.name===data.name);
       if(existing){showToast(`Deck "${data.name}" already exists.`);return;}
       decks.push({id:Date.now().toString(),name:data.name,emoji:data.emoji||'📚',color:data.color||'#7C3AED',subject:data.subject||'',cards:data.cards.map(c=>({...c,id:Date.now().toString()+Math.random(),mastered:false})),createdAt:Date.now()});
-      renderDecks();
+      saveData();renderDecks();
       showToast(`✓ Imported deck "${data.name}" (${data.cards.length} cards)!`,'green');
       window.history.replaceState({},'',window.location.pathname);
     }
@@ -1443,7 +1449,7 @@ function confirmImport(){
   if(!targetDeck){showToast('Could not find target deck.','red');return;}
   pendingImportCards.forEach(c=>targetDeck.cards.push({...c,id:Date.now().toString()+Math.random()}));
   showToast(`✓ ${pendingImportCards.length} cards imported into "${targetDeck.name}"!`,'green');
-  clearImport();renderDecks();
+  saveData();clearImport();renderDecks();
   setTimeout(()=>{openDeck(targetDeck.id);},600);
 }
 
@@ -1589,6 +1595,7 @@ function showSessionComplete(){
   document.getElementById('reviewMissedBtn').style.display=studyCards.some(c=>!c.mastered)?'inline-flex':'none';
   sessionHistory.push({deckName:studyDeck.name,date:new Date().toLocaleString(),score:pct,correct:studyScore.correct,wrong:studyScore.wrong,skip:studyScore.skip,total});
   document.getElementById('statSessions').textContent=sessionHistory.length;
+  saveData();
 }
 function restartStudy(){studyDeck.cards.forEach(c=>c.mastered=false);studyIdx=0;studyScore={correct:0,wrong:0,skip:0};document.getElementById('sessionComplete').style.display='none';buildStudyCards();resetStudyPomo();showStudyCard();}
 function studyMissed(){studyMissedOnly=true;document.getElementById('missedOnlyToggle').classList.add('on');buildStudyCards();studyIdx=0;studyScore={correct:0,wrong:0,skip:0};document.getElementById('sessionComplete').style.display='none';resetStudyPomo();showStudyCard();}
@@ -1680,11 +1687,49 @@ function showToast(msg,type=''){
   clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
 }
 
+
+// ════════════════════════════════
+// PERSISTENCE — localStorage
+// ════════════════════════════════
+const STORAGE_KEY = 'msb_decks_v1';
+const SESSION_KEY = 'msb_sessions_v1';
+
+function saveData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(decks));
+    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionHistory));
+  } catch(e) {
+    // localStorage full or unavailable — fail silently
+    console.warn('Could not save to localStorage:', e);
+  }
+}
+
+function loadData() {
+  try {
+    const savedDecks = localStorage.getItem(STORAGE_KEY);
+    const savedSessions = localStorage.getItem(SESSION_KEY);
+    if (savedDecks)    decks          = JSON.parse(savedDecks);
+    if (savedSessions) sessionHistory = JSON.parse(savedSessions);
+  } catch(e) {
+    console.warn('Could not load from localStorage:', e);
+    decks = []; sessionHistory = [];
+  }
+}
+
+function clearAllData() {
+  if (!confirm('Clear ALL decks and session history? This cannot be undone.')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(SESSION_KEY);
+  decks = []; sessionHistory = [];
+  renderDecks();
+  showToast('All data cleared.', 'red');
+}
+
 // ════════════════════════════════
 // INIT
 // ════════════════════════════════
 studyPomoFocus=pomoSettings.focus;studyPomoBreak=pomoSettings.brk;studyPomoRounds=pomoSettings.rounds;
-renderDecks();checkURLImport();
+loadData();renderDecks();checkURLImport();
 </script>
 </body>
 </html>
