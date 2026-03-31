@@ -331,7 +331,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 </head>
 <body>
 
-<div style="background:#5B21B6;color:white;text-align:center;padding:0.4rem 1rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.8rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">&#129514; Beta &#8212; Thanks for trying My Study Buddy! <a href="index.html" style="color:#FCD34D;font-weight:800;text-decoration:none;">&#8592; Back to home</a> <a href="mailto:YOUR_EMAIL@HERE.com" style="color:#FCD34D;font-weight:800;text-decoration:none;">Send feedback &#8594;</a></div>
+<div style="background:#5B21B6;color:white;text-align:center;padding:0.4rem 1rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.8rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">&#129514; Beta &#8212; Thanks for trying My Study Buddy! <a href="index.html" style="color:#FCD34D;font-weight:800;text-decoration:none;">&#8592; Back to home</a> <a href="mailto:hello@mystudybuddy.app" style="color:#FCD34D;font-weight:800;text-decoration:none;">Send feedback &#8594;</a></div>
 
 <div class="topbar">
   <div style="display:flex;align-items:center;gap:0.7rem;">
@@ -1698,22 +1698,16 @@ function saveData() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(decks));
     localStorage.setItem(SESSION_KEY, JSON.stringify(sessionHistory));
-  } catch(e) {
-    // localStorage full or unavailable — fail silently
-    console.warn('Could not save to localStorage:', e);
-  }
+  } catch(e) { console.warn('Save failed:', e); }
 }
 
 function loadData() {
   try {
-    const savedDecks = localStorage.getItem(STORAGE_KEY);
-    const savedSessions = localStorage.getItem(SESSION_KEY);
-    if (savedDecks)    decks          = JSON.parse(savedDecks);
-    if (savedSessions) sessionHistory = JSON.parse(savedSessions);
-  } catch(e) {
-    console.warn('Could not load from localStorage:', e);
-    decks = []; sessionHistory = [];
-  }
+    const d = localStorage.getItem(STORAGE_KEY);
+    const s = localStorage.getItem(SESSION_KEY);
+    if (d) decks          = JSON.parse(d);
+    if (s) sessionHistory = JSON.parse(s);
+  } catch(e) { decks = []; sessionHistory = []; }
 }
 
 function clearAllData() {
