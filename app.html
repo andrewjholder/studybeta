@@ -331,7 +331,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 </head>
 <body>
 
-<div style="background:#5B21B6;color:white;text-align:center;padding:0.4rem 1rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.8rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">&#129514; Beta &#8212; Thanks for trying My Study Buddy! <a href="index.html" style="color:#FCD34D;font-weight:800;text-decoration:none;">&#8592; Back to home</a> <a href="mailto:hello@mystudybuddy.app" style="color:#FCD34D;font-weight:800;text-decoration:none;">Send feedback &#8594;</a></div>
+<div style="background:#5B21B6;color:white;text-align:center;padding:0.4rem 1rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.8rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">&#129514; Beta &#8212; Thanks for trying My Study Buddy! <a href="free-decks.html" style="color:#FCD34D;font-weight:800;text-decoration:none;">&#127873; Free Decks</a> &nbsp;&middot;&nbsp; <a href="index.html" style="color:#FCD34D;font-weight:800;text-decoration:none;">&#8592; Home</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@mystudybuddy.app" style="color:#FCD34D;font-weight:800;text-decoration:none;">Send feedback &#8594;</a></div>
 
 <div class="topbar">
   <div style="display:flex;align-items:center;gap:0.7rem;">
@@ -354,6 +354,9 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
       <div class="si-icon" style="background:#EDE9FE;">📚</div>My Decks
       <span class="si-count" id="sidebarDeckCount">0</span>
     </div>
+    <a href="free-decks.html" class="sidebar-item" style="text-decoration:none;">
+      <div class="si-icon" style="background:#DCFCE7;">🎁</div>Free Decks
+    </a>
     <div class="sidebar-item" id="nav-stats" onclick="showView('stats',this)">
       <div class="si-icon" style="background:#DCFCE7;">📊</div>Stats
     </div>
@@ -1691,33 +1694,11 @@ function showToast(msg,type=''){
 // ════════════════════════════════
 // PERSISTENCE — localStorage
 // ════════════════════════════════
-const STORAGE_KEY = 'msb_decks_v1';
-const SESSION_KEY = 'msb_sessions_v1';
-
-function saveData() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(decks));
-    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionHistory));
-  } catch(e) { console.warn('Save failed:', e); }
-}
-
-function loadData() {
-  try {
-    const d = localStorage.getItem(STORAGE_KEY);
-    const s = localStorage.getItem(SESSION_KEY);
-    if (d) decks          = JSON.parse(d);
-    if (s) sessionHistory = JSON.parse(s);
-  } catch(e) { decks = []; sessionHistory = []; }
-}
-
-function clearAllData() {
-  if (!confirm('Clear ALL decks and session history? This cannot be undone.')) return;
-  localStorage.removeItem(STORAGE_KEY);
-  localStorage.removeItem(SESSION_KEY);
-  decks = []; sessionHistory = [];
-  renderDecks();
-  showToast('All data cleared.', 'red');
-}
+const STORAGE_KEY='msb_decks_v1';
+const SESSION_KEY='msb_sessions_v1';
+function saveData(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(decks));localStorage.setItem(SESSION_KEY,JSON.stringify(sessionHistory));}catch(e){}}
+function loadData(){try{const d=localStorage.getItem(STORAGE_KEY);const s=localStorage.getItem(SESSION_KEY);if(d)decks=JSON.parse(d);if(s)sessionHistory=JSON.parse(s);}catch(e){decks=[];sessionHistory=[];}}
+function clearAllData(){if(!confirm('Clear ALL decks and session history? This cannot be undone.'))return;localStorage.removeItem(STORAGE_KEY);localStorage.removeItem(SESSION_KEY);decks=[];sessionHistory=[];renderDecks();showToast('All data cleared.','red');}
 
 // ════════════════════════════════
 // INIT

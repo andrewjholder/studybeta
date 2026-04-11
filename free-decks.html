@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Decks &#8212; My Study Buddy</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Boogaloo&display=swap" rel="stylesheet">
+<meta name="description" content="Free flashcard decks for K-3 learners. Math, Colors, Spanish Numbers, Sight Words.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--purple:#7C3AED;--purple-light:#EDE9FE;--purple-dark:#5B21B6;--yellow:#FCD34D;--yellow-dark:#F59E0B;--coral:#F97316;--teal:#14B8A6;--teal-light:#CCFBF1;--green:#22C55E;--green-light:#DCFCE7;--blue:#3B82F6;--blue-light:#EFF6FF;--bg:#FFFBF0;--text:#1C1917;--muted:#78716C;--border:#E7E5E4;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.topbar{background:var(--purple);color:white;display:flex;align-items:center;justify-content:space-between;padding:0.7rem 1.5rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 0 var(--purple-dark);}
+.tl{font-family:'Boogaloo',cursive;font-size:1.5rem;display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:white;}
+.tl em{background:var(--yellow);color:#78350F;border-radius:8px;padding:2px 8px;font-size:1rem;border:2px solid var(--yellow-dark);font-style:normal;}
+.tnav{display:flex;gap:0.7rem;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1.1rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;cursor:pointer;border:2px solid transparent;transition:all 0.2s;text-decoration:none;}
+.btn-gw{background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3);}
+.btn-gw:hover{background:rgba(255,255,255,0.25);}
+.btn-yellow{background:var(--yellow);color:#78350F;border-color:var(--yellow-dark);box-shadow:0 3px 0 var(--yellow-dark);}
+.btn-yellow:hover{transform:translateY(-1px);}
+.hero{background:var(--purple);color:white;padding:3rem 2rem 3.5rem;text-align:center;position:relative;overflow:hidden;}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.07) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.badge{display:inline-flex;align-items:center;gap:0.4rem;background:var(--yellow);border:2px solid var(--yellow-dark);border-radius:50px;padding:0.3rem 1rem;font-size:0.85rem;font-weight:800;color:#78350F;margin-bottom:1.2rem;}
+.hero h1{font-family:'Boogaloo',cursive;font-size:clamp(2.2rem,5vw,3.5rem);margin-bottom:0.7rem;line-height:1.1;}
+.hero p{font-size:1rem;opacity:0.85;font-weight:600;max-width:520px;margin:0 auto 1.5rem;line-height:1.65;}
+.hstats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:2rem;}
+.hn{font-family:'Boogaloo',cursive;font-size:2rem;color:var(--yellow);}
+.hl{font-size:0.78rem;font-weight:700;opacity:0.8;}
+.main{max-width:1100px;margin:0 auto;padding:2.5rem 1.5rem;}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.8rem;}
+.st{font-family:'Boogaloo',cursive;font-size:1.8rem;}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem;margin-bottom:3rem;}
+.cc{border-radius:22px;padding:1.8rem;transition:all 0.2s;position:relative;overflow:hidden;text-decoration:none;display:block;border:3px solid transparent;box-shadow:0 6px 0 rgba(0,0,0,0.12);}
+.cc:not(.soon):hover{transform:translateY(-4px);box-shadow:0 10px 0 rgba(0,0,0,0.12);}
+.cc.soon{cursor:default;opacity:0.72;}
+.ci{font-size:3rem;margin-bottom:0.8rem;display:block;}
+.cn{font-family:'Boogaloo',cursive;font-size:1.6rem;margin-bottom:0.3rem;color:white;}
+.cd{font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.85);line-height:1.5;margin-bottom:0.9rem;}
+.ck{font-size:0.78rem;font-weight:800;color:rgba(255,255,255,0.7);margin-bottom:0.8rem;}
+.chips{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.chip{font-size:0.7rem;font-weight:800;padding:3px 9px;border-radius:50px;background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.3);color:white;}
+.sb{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;padding:0.2rem 0.7rem;font-size:0.7rem;font-weight:800;color:white;}
+.dg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;margin-bottom:2rem;}
+.dc{background:white;border:2px solid var(--border);border-radius:18px;padding:1.3rem;transition:all 0.2s;text-decoration:none;display:block;box-shadow:0 4px 0 var(--border);}
+.dc:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--border);}
+.di{font-size:2.2rem;margin-bottom:0.6rem;}
+.dn{font-weight:800;font-size:1rem;margin-bottom:0.25rem;color:var(--text);}
+.dm{font-size:0.78rem;color:var(--muted);font-weight:600;margin-bottom:0.8rem;}
+.dt{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.tag{font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:50px;border:1.5px solid transparent;}
+.ps{background:white;border:2px solid var(--border);border-radius:18px;padding:1.5rem;margin-bottom:2rem;}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.8rem;margin-top:1rem;}
+.pc{background:var(--bg);border:2px dashed var(--border);border-radius:12px;padding:1rem;text-align:center;}
+.pi{font-size:1.6rem;margin-bottom:0.4rem;}
+.pn{font-size:0.82rem;font-weight:800;margin-bottom:0.2rem;}
+.pm{font-size:0.72rem;color:var(--muted);font-weight:600;}
+.pb{font-size:0.65rem;font-weight:800;background:#FEF9C3;color:#854D0E;padding:2px 7px;border-radius:50px;display:inline-block;margin-top:0.4rem;}
+.hw{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.2rem;text-align:center;}
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.82rem;font-weight:600;border-top:2px solid var(--border);margin-top:2rem;}
+footer a{color:var(--purple);text-decoration:none;}
+@media(max-width:600px){.topbar{padding:0.7rem 1rem;}.hero{padding:2rem 1rem 2.5rem;}.main{padding:1.5rem 1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="index.html" class="tl">&#128214; My Study Buddy <em>Free</em></a>
+  <div class="tnav">
+    <a href="app.html" class="btn btn-gw">&#128218; My Decks</a>
+    <a href="app.html" class="btn btn-yellow">&#10003; Create Your Own</a>
+  </div>
+</div>
+<div class="hero">
+  <div class="dots"></div>
+  <div style="position:relative;">
+    <div class="badge">&#127873; 100% Free &#8212; No account needed</div>
+    <h1>Free Flash Card Decks &#127183;</h1>
+    <p>Ready-made study cards for K&#8211;3 learners. Pick a category, flip through cards, and start learning today!</p>
+    <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;">
+      <a href="#math" class="btn btn-yellow">&#128290; Start with Math</a>
+      <a href="app.html" class="btn btn-gw">&#128221; Make your own</a>
+    </div>
+    <div class="hstats">
+      <div><div class="hn">480+</div><div class="hl">Math flash cards</div></div>
+      <div><div class="hn">4</div><div class="hl">Subject areas</div></div>
+      <div><div class="hn">K&#8211;3</div><div class="hl">Grade level</div></div>
+      <div><div class="hn">$0</div><div class="hl">Always free</div></div>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="sh" style="margin-top:0.5rem;"><div class="st">&#128193; All Categories</div></div>
+  <div class="cg">
+    <a href="#math" class="cc" style="background:linear-gradient(135deg,#4F46E5,#7C3AED);border-color:#4338CA;">
+      <span class="ci">&#128290;</span>
+      <div class="cn">Math</div>
+      <div class="cd">Addition, Subtraction, Multiplication &amp; Division for early learners.</div>
+      <div class="ck">480 cards &#183; 4 decks &#183; Grades K&#8211;3</div>
+      <div class="chips"><span class="chip">&#10133; Add</span><span class="chip">&#10134; Sub</span><span class="chip">&#10006; Multiply</span><span class="chip">&#247; Divide</span></div>
+    </a>
+    <div class="cc soon" style="background:linear-gradient(135deg,#EC4899,#F97316);border-color:#DB2777;">
+      <span class="sb">Coming soon</span><span class="ci">&#127752;</span>
+      <div class="cn">Colors</div>
+      <div class="cd">Learn color names in English with fun visual flash cards.</div>
+      <div class="ck">Cards coming soon</div>
+      <div class="chips"><span class="chip">&#128308; Basic</span><span class="chip">&#127912; Names</span></div>
+    </div>
+    <div class="cc soon" style="background:linear-gradient(135deg,#F59E0B,#EF4444);border-color:#D97706;">
+      <span class="sb">Coming soon</span><span class="ci">&#127466;&#127480;</span>
+      <div class="cn">Spanish Numbers</div>
+      <div class="cd">Count from 1 to 100 in Spanish. Great for bilingual learners.</div>
+      <div class="ck">Cards coming soon</div>
+      <div class="chips"><span class="chip">1&#8211;10</span><span class="chip">11&#8211;20</span><span class="chip">1&#8211;100</span></div>
+    </div>
+    <div class="cc soon" style="background:linear-gradient(135deg,#14B8A6,#0EA5E9);border-color:#0D9488;">
+      <span class="sb">Coming soon</span><span class="ci">&#128214;</span>
+      <div class="cn">Sight Words</div>
+      <div class="cd">Dolch &amp; Fry sight words for early readers. Pre-K through Grade 3.</div>
+      <div class="ck">Cards coming soon</div>
+      <div class="chips"><span class="chip">Pre-K</span><span class="chip">K</span><span class="chip">Gr 1&#8211;3</span></div>
+    </div>
+  </div>
+  <div id="math" style="scroll-margin-top:70px;">
+    <div class="sh">
+      <div class="st">&#128290; Math Flash Cards</div>
+      <span style="font-size:0.85rem;font-weight:600;color:var(--muted);">Grades K&#8211;3 &#183; No account needed</span>
+    </div>
+    <div style="height:4px;background:linear-gradient(90deg,#4F46E5,#7C3AED,#EC4899);border-radius:2px;margin-bottom:2rem;"></div>
+    <div class="dg">
+      <a href="math-decks.html?op=addition" class="dc">
+        <div class="di">&#10133;</div><div class="dn">Addition</div>
+        <div class="dm">100 cards &#183; Single digits 0&#8211;9</div>
+        <div class="dt">
+          <span class="tag" style="background:var(--green-light);color:#166534;border-color:#BBF7D0;">Free</span>
+          <span class="tag" style="background:var(--purple-light);color:var(--purple);border-color:#DDD6FE;">K&#8211;2</span>
+          <span class="tag" style="background:#EDE9FE;color:var(--purple);border-color:#DDD6FE;">0+0 &#8594; 9+9</span>
+        </div>
+      </a>
+      <a href="math-decks.html?op=subtraction" class="dc">
+        <div class="di">&#10134;</div><div class="dn">Subtraction</div>
+        <div class="dm">55 cards &#183; Single digits 0&#8211;9</div>
+        <div class="dt">
+          <span class="tag" style="background:var(--green-light);color:#166534;border-color:#BBF7D0;">Free</span>
+          <span class="tag" style="background:var(--purple-light);color:var(--purple);border-color:#DDD6FE;">K&#8211;2</span>
+          <span class="tag" style="background:#FFF7ED;color:var(--coral);border-color:#FED7AA;">9&#8722;0 &#8594; 0&#8722;0</span>
+        </div>
+      </a>
+      <a href="math-decks.html?op=multiplication" class="dc">
+        <div class="di">&#10006;&#65039;</div><div class="dn">Multiplication</div>
+        <div class="dm">169 cards &#183; Tables 0&#8211;12</div>
+        <div class="dt">
+          <span class="tag" style="background:var(--green-light);color:#166534;border-color:#BBF7D0;">Free</span>
+          <span class="tag" style="background:var(--purple-light);color:var(--purple);border-color:#DDD6FE;">2&#8211;3</span>
+          <span class="tag" style="background:var(--green-light);color:#166534;border-color:#BBF7D0;">0&#215;0 &#8594; 12&#215;12</span>
+        </div>
+      </a>
+      <a href="math-decks.html?op=division" class="dc">
+        <div class="di">&#247;&#65039;</div><div class="dn">Division</div>
+        <div class="dm">156 cards &#183; Tables 1&#8211;12</div>
+        <div class="dt">
+          <span class="tag" style="background:var(--green-light);color:#166534;border-color:#BBF7D0;">Free</span>
+          <span class="tag" style="background:var(--purple-light);color:var(--purple);border-color:#DDD6FE;">Grade 3</span>
+          <span class="tag" style="background:var(--blue-light);color:var(--blue);border-color:#BFDBFE;">0&#247;1 &#8594; 144&#247;12</span>
+        </div>
+      </a>
+    </div>
+    <div class="ps">
+      <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;">
+        <div style="font-weight:800;font-size:1rem;">&#128424;&#65039; Printable Study Guides</div>
+        <span class="pb">Coming Soon</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);font-weight:600;">Downloadable PDF worksheets to print and practice offline. Perfect for classrooms and homework.</p>
+      <div class="pg">
+        <div class="pc"><div class="pi">&#128196;</div><div class="pn">Addition Chart</div><div class="pm">0&#8211;9 reference</div><div class="pb">Coming soon</div></div>
+        <div class="pc"><div class="pi">&#128196;</div><div class="pn">Subtraction Chart</div><div class="pm">0&#8211;9 reference</div><div class="pb">Coming soon</div></div>
+        <div class="pc"><div class="pi">&#128196;</div><div class="pn">Multiplication Table</div><div class="pm">0&#8211;12 times table</div><div class="pb">Coming soon</div></div>
+        <div class="pc"><div class="pi">&#128196;</div><div class="pn">Division Chart</div><div class="pm">1&#8211;12 facts</div><div class="pb">Coming soon</div></div>
+        <div class="pc"><div class="pi">&#128221;</div><div class="pn">Practice Worksheet</div><div class="pm">Mixed operations</div><div class="pb">Coming soon</div></div>
+        <div class="pc"><div class="pi">&#11088;</div><div class="pn">Speed Drill Sheet</div><div class="pm">Timed practice</div><div class="pb">Coming soon</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:white;border:2px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:2rem;">
+    <div style="font-family:'Boogaloo',cursive;font-size:1.5rem;margin-bottom:1.5rem;text-align:center;">How it works &#127183;</div>
+    <div class="hw">
+      <div><div style="font-size:2rem;margin-bottom:0.5rem;">&#128070;</div><div style="font-weight:800;font-size:0.9rem;margin-bottom:0.3rem;">Pick a deck</div><div style="font-size:0.78rem;color:var(--muted);font-weight:600;line-height:1.5;">Choose a subject and operation</div></div>
+      <div><div style="font-size:2rem;margin-bottom:0.5rem;">&#127183;</div><div style="font-weight:800;font-size:0.9rem;margin-bottom:0.3rem;">Flip the card</div><div style="font-size:0.78rem;color:var(--muted);font-weight:600;line-height:1.5;">See question, tap to reveal answer</div></div>
+      <div><div style="font-size:2rem;margin-bottom:0.5rem;">&#9989;</div><div style="font-weight:800;font-size:0.9rem;margin-bottom:0.3rem;">Mark it</div><div style="font-size:0.78rem;color:var(--muted);font-weight:600;line-height:1.5;">Got it right? Mark and move on!</div></div>
+      <div><div style="font-size:2rem;margin-bottom:0.5rem;">&#127881;</div><div style="font-weight:800;font-size:0.9rem;margin-bottom:0.3rem;">Celebrate!</div><div style="font-size:0.78rem;color:var(--muted);font-weight:600;line-height:1.5;">Confetti when you finish!</div></div>
+    </div>
+  </div>
+  <div style="background:var(--purple);border-radius:22px;padding:2.5rem;text-align:center;color:white;">
+    <div style="font-size:2rem;margin-bottom:0.5rem;">&#9997;&#65039;</div>
+    <div style="font-family:'Boogaloo',cursive;font-size:1.8rem;margin-bottom:0.5rem;">Want to make your own decks?</div>
+    <div style="font-size:0.9rem;opacity:0.85;font-weight:600;margin-bottom:1.5rem;">Create custom flash cards for any subject. 100% free, no account needed.</div>
+    <a href="app.html" class="btn btn-yellow" style="font-size:1rem;padding:0.8rem 2rem;">&#128640; Create free decks</a>
+  </div>
+</div>
+<footer>
+  <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
+  <a href="app.html">My Decks</a> &nbsp;&middot;&nbsp;
+  <a href="free-decks.html">Free Decks</a> &nbsp;&middot;&nbsp;
+  <a href="math-decks.html">Math Cards</a> &nbsp;&middot;&nbsp;
+  <a href="mailto:hello@mystudybuddy.app">Contact</a>
+  &nbsp;&middot;&nbsp; &copy; 2026 My Study Buddy
+</footer>
+</body>
+</html>

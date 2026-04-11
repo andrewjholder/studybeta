@@ -154,16 +154,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 .cta-section h2{font-family:'Boogaloo',cursive;font-size:2.5rem;color:white;margin-bottom:0.8rem;}
 .cta-section p{color:rgba(255,255,255,0.8);font-weight:600;margin-bottom:2rem;}
 
-
-.faq-item{background:white;border:2px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow 0.2s;}
-.faq-item:hover{box-shadow:0 4px 0 var(--border);}
-.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.4rem;background:none;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;color:var(--text);cursor:pointer;text-align:left;gap:1rem;}
-.faq-q:hover{background:var(--bg);}
-.faq-arrow{font-size:0.8rem;color:var(--muted);transition:transform 0.25s;flex-shrink:0;}
-.faq-item.open .faq-arrow{transform:rotate(180deg);}
-.faq-a{padding:0 1.4rem 1.1rem;font-size:0.9rem;color:var(--muted);font-weight:600;line-height:1.7;display:none;}
-.faq-item.open .faq-a{display:block;}
-
 footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.85rem;font-weight:600;border-top:2px solid var(--border);}
 
 @media(max-width:600px){.nav-links{display:none;}.hero{padding:3rem 1rem 2rem;}.stats-band{gap:2rem;}.pricing-card.featured{transform:none;}.cta-section{margin:1rem;}}
@@ -171,29 +161,27 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.85rem;font-
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://andrewjholder.github.io/studybeta/">
 <meta property="og:title" content="My Study Buddy — Free Flashcard Study App">
-<meta property="og:description" content="Flashcards, quizzes, and a built-in Pomodoro timer. Create decks, study smarter, and track your progress. 100% free.">
-<meta property="og:image" content="https://andrewjholder.github.io/studybeta/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="My Study Buddy — Free Flashcard Study App">
-<meta name="twitter:description" content="Flashcards, quizzes, and a built-in Pomodoro timer. 100% free.">
-<meta name="description" content="My Study Buddy is a free flashcard and quiz app with a built-in Pomodoro timer. Create decks, study smarter, track your progress. No account needed.">
-<meta name="keywords" content="flashcards, study app, pomodoro timer, quiz, free study tool, flashcard maker">
+<meta property="og:description" content="Flashcards, quizzes and a Pomodoro timer. 100% free, no account needed.">
+<meta name="description" content="Free flashcard and quiz app with built-in Pomodoro timer. No account needed.">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#7C3AED">
-<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="StudyBuddy">
 </head>
 <body>
 
-<div style="background:#5B21B6;color:white;text-align:center;padding:0.45rem 1rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;display:flex;align-items:center;justify-content:center;gap:0.8rem;flex-wrap:wrap;">&#129514; Beta Release &#8212; You're an early user! <a href="mailto:hello@mystudybuddy.app" style="color:#FCD34D;font-weight:800;text-decoration:none;">Send feedback &#8594;</a></div>
+<div style="background:#5B21B6;color:white;text-align:center;padding:0.45rem 1rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;display:flex;align-items:center;justify-content:center;gap:0.8rem;flex-wrap:wrap;">&#129514; Beta Release &#8212; You're an early user! <a href="free-decks.html" style="color:#FCD34D;font-weight:800;text-decoration:none;">&#127873; Free Decks</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@mystudybuddy.app" style="color:#FCD34D;font-weight:800;text-decoration:none;">Send feedback &#8594;</a></div>
 
 <nav>
   <a href="#" class="logo"><div class="logo-icon">📖</div>My Study Buddy</a>
   <ul class="nav-links">
     <li><a href="#how">How it works</a></li>
+    <li><a href="free-decks.html" style="color:#22C55E;font-weight:900;">&#127873; Free Decks</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#cards">Card Types</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="free-decks.html" style="color:var(--green);font-weight:800;">🎁 Free Decks</a></li>
   </ul>
   <div class="nav-cta">
     <a href="app.html" class="btn btn-outline">Log in</a>
@@ -233,9 +221,9 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.85rem;font-
 </section>
 
 <div class="stats-band">
-  <div class="stat-item"><div class="stat-number">🎓</div><div class="stat-label">Built for students</div></div>
-  <div class="stat-item"><div class="stat-number">4</div><div class="stat-label">Card types</div></div>
-  <div class="stat-item"><div class="stat-number">🍅</div><div class="stat-label">Pomodoro built in</div></div>
+  <div class="stat-item"><div class="stat-number">&#127891;</div><div class="stat-label">Built for students</div></div>
+  <div class="stat-item"><div class="stat-number">&#127873;</div><div class="stat-label">Free decks included</div></div>
+  <div class="stat-item"><div class="stat-number">4</div><div class="stat-label">Question types</div></div>
   <div class="stat-item"><div class="stat-number">$0</div><div class="stat-label">Always free</div></div>
 </div>
 
@@ -345,33 +333,34 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.85rem;font-
 </section>
 
 <section class="section" id="pricing">
-  <h2 class="section-title">Free. Forever. No catch. 🎉</h2>
-  <p class="section-sub">My Study Buddy is completely free during beta. No account, no credit card, no limits.</p>
+  <h2 class="section-title">Free. Forever. No catch. &#127881;</h2>
+  <p class="section-sub">My Study Buddy is completely free. No account, no credit card, no limits.</p>
   <div style="max-width:700px;margin:0 auto;">
-
     <div style="background:white;border:2px solid var(--border);border-radius:24px;padding:2.5rem;box-shadow:0 4px 0 var(--border);text-align:center;margin-bottom:1.5rem;">
-      <div style="font-size:3rem;margin-bottom:0.8rem;">🎓</div>
+      <div style="font-size:3rem;margin-bottom:0.8rem;">&#127891;</div>
       <div style="font-family:'Boogaloo',cursive;font-size:2.5rem;color:var(--purple);margin-bottom:0.5rem;">$0 / month</div>
       <div style="font-size:1rem;color:var(--muted);font-weight:600;margin-bottom:2rem;">Forever free. No credit card. No catch.</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;text-align:left;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;">
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> Unlimited decks</div>
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> Unlimited cards</div>
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> All 4 card types</div>
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> Pomodoro timer</div>
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> PDF &amp; CSV export</div>
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> Import from CSV</div>
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> Share deck links</div>
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> Keyboard shortcuts</div>
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> Session stats</div>
-        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);font-size:1.1rem;">✓</span> Works on any device</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> Unlimited decks</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> Unlimited cards</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> All 4 card types</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> Pomodoro timer</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> PDF &amp; CSV export</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> Import from CSV</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> 480+ free math cards</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> Share deck links</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> Keyboard shortcuts</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.9rem;"><span style="color:var(--green);">&#10003;</span> Works on any device</div>
       </div>
-      <a href="app.html" class="btn btn-yellow" style="font-size:1.1rem;padding:0.9rem 2.5rem;">🚀 Start studying for free</a>
-      <div style="margin-top:1rem;font-size:0.8rem;color:var(--muted);font-weight:600;">No account needed &nbsp;·&nbsp; Your data stays on your device &nbsp;·&nbsp; Works offline</div>
+      <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;">
+        <a href="app.html" class="btn btn-yellow" style="font-size:1.05rem;padding:0.85rem 2rem;">&#128640; Start studying free</a>
+        <a href="free-decks.html" class="btn btn-outline" style="font-size:1.05rem;padding:0.85rem 2rem;">&#127873; Browse free decks</a>
+      </div>
+      <div style="margin-top:1rem;font-size:0.8rem;color:var(--muted);font-weight:600;">No account needed &nbsp;&middot;&nbsp; Your data stays on your device &nbsp;&middot;&nbsp; Works offline</div>
     </div>
-
     <div style="background:var(--purple-light);border:2px solid #DDD6FE;border-radius:20px;padding:1.5rem;text-align:center;">
       <div style="font-weight:800;font-size:1rem;color:var(--purple);margin-bottom:0.4rem;">&#128172; Beta Feedback</div>
-      <div style="font-size:0.88rem;color:var(--muted);font-weight:600;margin-bottom:1rem;">We're actively building. Have a feature request or found a bug? We'd love to hear from you.</div>
+      <div style="font-size:0.88rem;color:var(--muted);font-weight:600;margin-bottom:1rem;">Feature requests or bugs? We&#8217;d love to hear from you.</div>
       <a href="mailto:hello@mystudybuddy.app" class="btn btn-primary btn-sm">&#9993; Send feedback</a>
     </div>
   </div>
@@ -381,76 +370,33 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.85rem;font-
   <h2 class="section-title">Frequently Asked Questions &#10067;</h2>
   <p class="section-sub">Everything you need to know before you start.</p>
   <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:0.8rem;">
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">
-        <span>Does my data save between sessions?</span><span class="faq-arrow">&#9660;</span>
-      </button>
-      <div class="faq-a">Yes! Your decks and cards are automatically saved in your browser's local storage. They'll be there when you come back — as long as you use the same browser on the same device. You can also export any deck as a CSV or PDF to back it up.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">
-        <span>Do I need to create an account?</span><span class="faq-arrow">&#9660;</span>
-      </button>
-      <div class="faq-a">Nope! My Study Buddy works completely without an account. Just open the app and start creating decks. Your data is stored locally on your device.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">
-        <span>Can I use it on my phone?</span><span class="faq-arrow">&#9660;</span>
-      </button>
-      <div class="faq-a">Yes — the app is fully responsive and works on any device with a browser. On iPhone or Android, tap the share button in your browser and select "Add to Home Screen" to get an app-like experience without downloading anything.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">
-        <span>How do I share a deck with a classmate?</span><span class="faq-arrow">&#9660;</span>
-      </button>
-      <div class="faq-a">Open any deck in the app, click "Share Link" in the Export panel, and copy the URL. Anyone who opens that link will be able to import a copy of your deck into their own app — no account needed on either end.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">
-        <span>Can I import questions from Excel or Google Sheets?</span><span class="faq-arrow">&#9660;</span>
-      </button>
-      <div class="faq-a">Yes! Download one of the CSV templates from the Import / Export page, fill in your questions in Excel or Google Sheets, save as CSV, and import it into the app. You can mix all 4 card types in a single file.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">
-        <span>What is the Pomodoro technique?</span><span class="faq-arrow">&#9660;</span>
-      </button>
-      <div class="faq-a">The Pomodoro technique is a proven focus method: study for 25 minutes, take a 5-minute break, repeat. My Study Buddy has a Pomodoro timer built directly into every study session so you never have to switch tabs. You can customize the intervals in Settings.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">
-        <span>Is this really free? What's the catch?</span><span class="faq-arrow">&#9660;</span>
-      </button>
-      <div class="faq-a">Completely free, no catch. We're in beta and focused on building something students actually love. No ads, no paywalls, no data selling. We may introduce optional features down the road, but the core app will always be free.</div>
-    </div>
-
+    <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)"><span>Does my data save between sessions?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-a">Yes! Your decks are automatically saved in your browser. They&#8217;ll be there when you come back as long as you use the same browser. You can also export any deck as CSV or PDF to back it up.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)"><span>Do I need to create an account?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-a">No account needed. Just open the app and start creating decks. Your data is stored locally on your device.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)"><span>Can I use it on my phone?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-a">Yes &#8212; fully responsive on any device. On iPhone or Android, tap Share then &#8220;Add to Home Screen&#8221; for an app-like experience without downloading anything.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)"><span>What are the Free Decks?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-a">Free Decks are pre-built flash card sets for K&#8211;3 learners. Right now we have 480+ Math cards. Colors, Spanish Numbers, and Sight Words are coming soon!</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)"><span>Can I import from Excel or Google Sheets?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-a">Yes! Download a CSV template from the Import/Export page, fill in your questions, save as CSV, and import. You can mix all 4 card types in one file.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)"><span>Is this really free? What&#8217;s the catch?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-a">Completely free, no catch. No ads, no paywalls, no data selling. We&#8217;re in beta focused on building something students love.</div></div>
   </div>
 </section>
 
 <div class="cta-section">
   <h2>Ready to ace your next exam? 🎓</h2>
-  <p>Free forever. No account needed. Start in seconds.</p>
+  <p>Free forever. No account needed. 480+ free math cards for K&#8211;3 included.</p>
   <a href="app.html" class="btn btn-yellow">🚀 Start for free — no signup needed</a>
 </div>
 
 <footer>
   <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:0.8rem;">
-    <div style="font-family:'Boogaloo',cursive;font-size:1.2rem;color:var(--purple);">📖 My Study Buddy</div>
+    <div style="font-family:'Boogaloo',cursive;font-size:1.2rem;color:var(--purple);">&#128214; My Study Buddy</div>
     <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;font-size:0.85rem;font-weight:700;">
       <a href="#how" style="color:var(--muted);text-decoration:none;">How it works</a>
       <a href="#features" style="color:var(--muted);text-decoration:none;">Features</a>
+      <a href="free-decks.html" style="color:#22C55E;text-decoration:none;font-weight:800;">&#127873; Free Decks</a>
       <a href="#faq" style="color:var(--muted);text-decoration:none;">FAQ</a>
       <a href="app.html" style="color:var(--purple);text-decoration:none;">Open App</a>
       <a href="mailto:hello@mystudybuddy.app" style="color:var(--muted);text-decoration:none;">Contact</a>
     </div>
-    <div style="font-size:0.8rem;color:var(--muted);font-weight:600;">Made with ❤️ for students everywhere &nbsp;·&nbsp; © 2026 My Study Buddy &nbsp;·&nbsp; Beta v1.0</div>
+    <div style="font-size:0.8rem;color:var(--muted);font-weight:600;">Made with &#10084;&#65039; for students everywhere &nbsp;&middot;&nbsp; &copy; 2026 My Study Buddy &nbsp;&middot;&nbsp; Beta v1.0</div>
   </div>
 </footer>
 
@@ -501,26 +447,26 @@ function resetPomo(){
 updatePomo();
 </script>
 
-<!-- BETA NOTICE MODAL -->
-<div id="betaOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity 0.35s;">
+<!-- BETA MODAL -->
+<div id="betaOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity 0.35s;">
   <div id="betaModal" style="background:white;border-radius:24px;width:100%;max-width:520px;overflow:hidden;border:2px solid #E7E5E4;box-shadow:0 24px 48px rgba(0,0,0,0.18);transform:scale(0.92) translateY(16px);transition:transform 0.35s;">
     <div style="background:#7C3AED;padding:1.4rem 1.8rem 1.2rem;position:relative;">
       <div style="font-size:1.8rem;margin-bottom:0.5rem;">&#128679;</div>
       <div style="font-family:'Boogaloo',cursive;font-size:1.7rem;color:white;line-height:1.1;">Beta Release Notice</div>
-      <button onclick="closeBetaModal()" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.35);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;color:white;display:flex;align-items:center;justify-content:center;line-height:1;">&#x2715;</button>
+      <button onclick="closeBetaModal()" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.35);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;color:white;display:flex;align-items:center;justify-content:center;">&#x2715;</button>
     </div>
     <div style="background:#FCD34D;padding:0.5rem 1.8rem;border-bottom:2px solid #F59E0B;">
       <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.82rem;color:#78350F;">&#10024; Thanks for being an early user &#8212; your feedback shapes what we build!</span>
     </div>
     <div style="padding:1.6rem 1.8rem;">
       <p style="font-size:0.95rem;font-weight:600;color:#1C1917;line-height:1.75;margin-bottom:1rem;">Welcome to our Beta launch! We&#8217;re excited to give you early access while we continue building and refining the experience.</p>
-      <p style="font-size:0.9rem;font-weight:600;color:#78716C;line-height:1.75;margin-bottom:1rem;">While many features are already available, you may notice that some links, pages, or functionality are still in development and may not work as expected. We&#8217;re actively working to complete these areas and improve overall performance.</p>
-      <p style="font-size:0.9rem;font-weight:600;color:#78716C;line-height:1.75;margin-bottom:1rem;">Your feedback during this beta phase is incredibly valuable and helps us shape the final experience. We appreciate your patience as we continue to enhance the site.</p>
+      <p style="font-size:0.9rem;font-weight:600;color:#78716C;line-height:1.75;margin-bottom:1rem;">While many features are already available, you may notice that some links, pages, or functionality are still in development and may not work as expected.</p>
+      <p style="font-size:0.9rem;font-weight:600;color:#78716C;line-height:1.75;margin-bottom:1rem;">Your feedback during this beta phase is incredibly valuable and helps us shape the final experience.</p>
       <p style="font-size:0.9rem;font-weight:700;color:#1C1917;line-height:1.75;">Thank you for being an early user and helping us build something great.</p>
       <div style="height:1px;background:#E7E5E4;margin:1.4rem 0;"></div>
       <div style="display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center;">
         <button onclick="closeBetaModal()" style="background:#7C3AED;color:white;border:2px solid #5B21B6;border-radius:50px;padding:0.65rem 1.5rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;cursor:pointer;box-shadow:0 3px 0 #5B21B6;">Got it &#8212; let&#8217;s go! &#128640;</button>
-        <a href="mailto:hello@mystudybuddy.app" style="background:transparent;color:#7C3AED;border:2px solid #7C3AED;border-radius:50px;padding:0.65rem 1.2rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">&#9993;&#65039; Send feedback</a>
+        <a href="mailto:hello@mystudybuddy.app" style="background:transparent;color:#7C3AED;border:2px solid #7C3AED;border-radius:50px;padding:0.65rem 1.2rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.88rem;text-decoration:none;">&#9993;&#65039; Send feedback</a>
       </div>
       <p style="margin-top:1rem;font-size:0.72rem;color:#78716C;font-weight:600;">Click anywhere outside or press Esc to close.</p>
     </div>
@@ -530,9 +476,12 @@ updatePomo();
 function openBetaModal(){var ov=document.getElementById('betaOverlay'),mo=document.getElementById('betaModal');ov.style.display='flex';requestAnimationFrame(function(){ov.style.opacity='1';mo.style.transform='scale(1) translateY(0)';});}
 function closeBetaModal(){var ov=document.getElementById('betaOverlay'),mo=document.getElementById('betaModal');ov.style.opacity='0';mo.style.transform='scale(0.92) translateY(16px)';setTimeout(function(){ov.style.display='none';},350);}
 function toggleFAQ(btn){var item=btn.parentElement;var wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});if(!wasOpen)item.classList.add('open');}
-document.getElementById('betaOverlay').addEventListener('click',function(e){if(e.target===this)closeBetaModal();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBetaModal();});
-window.addEventListener('load',function(){setTimeout(openBetaModal,400);});
+document.addEventListener('DOMContentLoaded',function(){
+  var ov=document.getElementById('betaOverlay');
+  if(ov){ov.addEventListener('click',function(e){if(e.target===this)closeBetaModal();});}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBetaModal();});
+  setTimeout(openBetaModal,500);
+});
 </script>
 </body>
 </html>
