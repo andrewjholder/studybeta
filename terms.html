@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use — My Study Buddy</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Boogaloo&display=swap" rel="stylesheet">
+<meta name="description" content="Terms of Use for My Study Buddy. Free, fair, and written in plain English.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--purple:#7C3AED;--purple-light:#EDE9FE;--purple-dark:#5B21B6;--yellow:#FCD34D;--yellow-dark:#F59E0B;--green:#22C55E;--green-light:#DCFCE7;--teal:#14B8A6;--teal-light:#CCFBF1;--bg:#FFFBF0;--text:#1C1917;--muted:#78716C;--border:#E7E5E4;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.topbar{background:var(--purple);color:white;display:flex;align-items:center;justify-content:space-between;padding:0.7rem 1.5rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 0 var(--purple-dark);}
+.topbar-logo{font-family:'Boogaloo',cursive;font-size:1.5rem;display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:white;}
+.topbar-logo em{background:var(--yellow);color:#78350F;border-radius:8px;padding:2px 8px;font-size:1rem;border:2px solid var(--yellow-dark);font-style:normal;}
+.tnav{display:flex;gap:0.7rem;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1.1rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;cursor:pointer;border:2px solid transparent;transition:all 0.2s;text-decoration:none;}
+.btn-gw{background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3);}
+.btn-gw:hover{background:rgba(255,255,255,0.25);}
+.btn-yellow{background:var(--yellow);color:#78350F;border-color:var(--yellow-dark);box-shadow:0 3px 0 var(--yellow-dark);}
+.btn-yellow:hover{transform:translateY(-1px);}
+.btn-primary{background:var(--purple);color:white;border-color:var(--purple-dark);box-shadow:0 3px 0 var(--purple-dark);}
+.btn-primary:hover{transform:translateY(-1px);}
+.hero{background:var(--teal);color:white;padding:3rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.07) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.hero h1{font-family:'Boogaloo',cursive;font-size:clamp(2rem,5vw,3rem);margin-bottom:0.6rem;position:relative;}
+.hero p{font-size:0.95rem;opacity:0.85;font-weight:600;max-width:500px;margin:0 auto;position:relative;}
+.hero-meta{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.25);border-radius:50px;padding:0.3rem 1rem;font-size:0.8rem;font-weight:700;margin-bottom:1.2rem;position:relative;}
+.main{max-width:800px;margin:0 auto;padding:3rem 1.5rem;}
+.toc{background:var(--teal-light);border:2px solid #99F6E4;border-radius:18px;padding:1.4rem 1.8rem;margin-bottom:2.5rem;}
+.toc-title{font-weight:800;font-size:0.95rem;color:var(--teal);margin-bottom:0.8rem;}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
+.toc-list a{color:var(--teal);text-decoration:none;font-size:0.88rem;font-weight:700;display:flex;align-items:center;gap:0.5rem;transition:opacity 0.15s;}
+.toc-list a:hover{opacity:0.7;}
+.toc-num{font-size:0.7rem;background:var(--teal);color:white;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;}
+.plain-box{background:var(--teal-light);border:2px solid #99F6E4;border-radius:18px;padding:1.4rem 1.8rem;margin-bottom:2.5rem;}
+.plain-box-title{font-weight:800;font-size:1rem;color:#0D9488;margin-bottom:0.8rem;}
+.plain-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.plain-list li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.9rem;font-weight:600;color:#0D9488;line-height:1.5;}
+.ps{margin-bottom:2.5rem;scroll-margin-top:80px;}
+.sh{font-family:'Boogaloo',cursive;font-size:1.5rem;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+.sn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--teal);color:white;border-radius:50%;font-family:'Boogaloo',cursive;font-size:1rem;flex-shrink:0;}
+.sb{font-size:0.92rem;font-weight:600;color:var(--muted);line-height:1.8;}
+.sb p{margin-bottom:0.8rem;}
+.sb p:last-child{margin-bottom:0;}
+.hb{background:white;border:2px solid var(--border);border-radius:14px;padding:1.1rem 1.3rem;margin:1rem 0;font-size:0.88rem;font-weight:700;color:var(--text);line-height:1.8;}
+.hb.green{background:var(--green-light);border-color:#BBF7D0;color:#166534;}
+.hb.teal{background:var(--teal-light);border-color:#99F6E4;color:#0D9488;}
+.hb.red{background:#FEF2F2;border-color:#FECACA;color:#DC2626;}
+.hb.yellow{background:#FEFCE8;border-color:#FEF08A;color:#854D0E;}
+.divider{height:1px;background:var(--border);margin:2.5rem 0;}
+.feedback-section{background:white;border:2px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:2.5rem;}
+.form-group{margin-bottom:1.1rem;}
+.form-label{font-size:0.82rem;font-weight:800;color:var(--text);margin-bottom:0.4rem;display:block;}
+.form-input,.form-select,.form-textarea{width:100%;padding:0.65rem 0.9rem;border:2px solid var(--border);border-radius:12px;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:600;color:var(--text);background:white;outline:none;transition:border-color 0.2s;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--teal);}
+.form-textarea{resize:vertical;min-height:100px;}
+.form-hint{font-size:0.75rem;color:var(--muted);font-weight:600;margin-top:0.3rem;}
+.form-success{display:none;background:var(--green-light);border:2px solid #BBF7D0;border-radius:12px;padding:1rem 1.3rem;font-weight:700;font-size:0.9rem;color:#166534;margin-top:1rem;}
+.form-success.show{display:block;}
+.last-updated{background:var(--bg);border:2px solid var(--border);border-radius:14px;padding:1rem;font-size:0.82rem;font-weight:600;color:var(--muted);text-align:center;margin-bottom:2rem;}
+.mission-box{background:linear-gradient(135deg,var(--purple-light),var(--teal-light));border:2px solid #DDD6FE;border-radius:20px;padding:2rem;margin-bottom:2.5rem;text-align:center;}
+.mission-box .icon{font-size:2.5rem;margin-bottom:0.6rem;}
+.mission-box .title{font-family:'Boogaloo',cursive;font-size:1.5rem;color:var(--purple);margin-bottom:0.5rem;}
+.mission-box .body{font-size:0.9rem;font-weight:600;color:var(--muted);line-height:1.7;max-width:500px;margin:0 auto;}
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.82rem;font-weight:600;border-top:2px solid var(--border);margin-top:1rem;}
+footer a{color:var(--purple);text-decoration:none;}
+@media(max-width:600px){.topbar{padding:0.7rem 1rem;}.hero{padding:2rem 1rem;}.main{padding:2rem 1rem;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="topbar-logo">&#128214; My Study Buddy <em>Free</em></a>
+  <div class="tnav">
+    <a href="app.html" class="btn btn-gw">&#128218; App</a>
+    <a href="free-decks.html" class="btn btn-gw">&#127873; Free Decks</a>
+    <a href="app.html" class="btn btn-yellow">Start Studying</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-meta">&#128221; Terms of Use</div>
+  <h1>Fair Terms &#8212; Plain English &#128077;</h1>
+  <p>We wrote this the way we&#8217;d want it explained to us. No legal maze, just honest expectations.</p>
+</div>
+
+<div class="main">
+
+  <div class="last-updated">&#128197; Last updated: June 2026 &nbsp;&middot;&nbsp; My Study Buddy Beta v1.0</div>
+
+  <div class="mission-box">
+    <div class="icon">&#127891;</div>
+    <div class="title">Our Mission</div>
+    <div class="body">My Study Buddy exists to make self-study fun and accessible for students, teachers, and homeschooling families. We believe in learning together &#8212; sharing knowledge amongst friends and family. This is a free tool built with heart, not profit.</div>
+  </div>
+
+  <div class="plain-box">
+    <div class="plain-box-title">&#9989; The short version</div>
+    <ul class="plain-list">
+      <li><span>&#10003;</span> The app is free and we intend to keep it that way.</li>
+      <li><span>&#10003;</span> Use it to study, share decks, and learn. That&#8217;s what it&#8217;s for.</li>
+      <li><span>&#10003;</span> Be respectful &#8212; don&#8217;t use it for harmful or illegal content.</li>
+      <li><span>&#10003;</span> We&#8217;re in beta &#8212; things may change, break, or improve.</li>
+      <li><span>&#10003;</span> Your content is yours. We don&#8217;t claim ownership of your decks.</li>
+      <li><span>&#10003;</span> Contact us anytime with questions. We&#8217;re real people who care.</li>
+    </ul>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">&#128221; In these terms</div>
+    <ul class="toc-list">
+      <li><a href="#accept"><span class="toc-num">1</span> Accepting these terms</a></li>
+      <li><a href="#service"><span class="toc-num">2</span> What My Study Buddy is</a></li>
+      <li><a href="#use"><span class="toc-num">3</span> Acceptable use</a></li>
+      <li><a href="#content"><span class="toc-num">4</span> Your content</a></li>
+      <li><a href="#beta"><span class="toc-num">5</span> Beta status &amp; changes</a></li>
+      <li><a href="#ip"><span class="toc-num">6</span> Intellectual property</a></li>
+      <li><a href="#liability"><span class="toc-num">7</span> Limitation of liability</a></li>
+      <li><a href="#privacy"><span class="toc-num">8</span> Privacy</a></li>
+      <li><a href="#contact-t"><span class="toc-num">9</span> Contact us</a></li>
+    </ul>
+  </div>
+
+  <div class="ps" id="accept">
+    <div class="sh"><span class="sn">1</span> Accepting these terms</div>
+    <div class="sb">
+      <p>By using My Study Buddy (&#8220;the app&#8221;, &#8220;the site&#8221;, &#8220;the service&#8221;), you agree to these Terms of Use. If you do not agree, please do not use the app.</p>
+      <p>No account is required to use My Study Buddy, so these terms apply automatically when you visit or interact with the app. If you are a parent or guardian allowing a child to use the app, you agree to these terms on their behalf.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ps" id="service">
+    <div class="sh"><span class="sn">2</span> What My Study Buddy is</div>
+    <div class="sb">
+      <p>My Study Buddy is a free, browser-based self-study and flashcard application intended for:</p>
+      <div class="hb teal">
+        &#127891; <strong>Students</strong> of all ages &#8212; from kindergarten to college<br><br>
+        &#128203; <strong>Teachers</strong> &#8212; creating and sharing study materials with their classes<br><br>
+        &#127968; <strong>Homeschooling families</strong> &#8212; building custom curricula and learning together<br><br>
+        &#128101; <strong>Anyone</strong> who wants a fun, effective way to study and share knowledge
+      </div>
+      <p>The app is currently in <strong>beta</strong>, meaning it is actively being developed and improved. We release features as they are ready and update based on user feedback. Core functionality &#8212; flashcard creation, study mode, Pomodoro timer, import/export &#8212; is stable and available to all users at no cost.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ps" id="use">
+    <div class="sh"><span class="sn">3</span> Acceptable use</div>
+    <div class="sb">
+      <p>My Study Buddy is built to help people learn. We trust our users to use it responsibly. Here is what we ask:</p>
+      <div class="hb green">
+        <strong>&#10003; Do use the app to:</strong><br><br>
+        &#8226; Create flash card decks for studying any subject<br>
+        &#8226; Share decks with classmates, students, or family members<br>
+        &#8226; Import and export your own study materials<br>
+        &#8226; Send us feedback to help us improve<br>
+        &#8226; Use free decks as study aids for K&#8211;3 learners
+      </div>
+      <div class="hb red">
+        <strong>&#10007; Please do not:</strong><br><br>
+        &#8226; Create or share content that is illegal, harmful, hateful, or abusive<br>
+        &#8226; Attempt to hack, overload, or disrupt the service<br>
+        &#8226; Use the app to collect others&#8217; personal information<br>
+        &#8226; Impersonate My Study Buddy or claim to represent us<br>
+        &#8226; Use the service in any way that could harm children
+      </div>
+      <p>We reserve the right to block access to anyone misusing the service, though given the app&#8217;s design (no accounts, data stored locally), this is unlikely to be necessary.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ps" id="content">
+    <div class="sh"><span class="sn">4</span> Your content</div>
+    <div class="sb">
+      <div class="hb teal">&#10003; <strong>Your decks are yours.</strong> Any flash cards, questions, or study materials you create belong entirely to you. We have no access to them, no claim over them, and no right to use them.</div>
+      <p>All content you create is stored locally in your browser. It is never transmitted to our servers (we don&#8217;t have any). You can export it at any time as CSV or PDF and use it however you like.</p>
+      <p>When you share a deck using the &#8220;Share Link&#8221; feature, the deck data is encoded in the URL itself. We do not store, access, or process shared deck content.</p>
+      <p>You are responsible for ensuring any content you create or share is appropriate and does not infringe on others&#8217; copyrights. If you import questions from textbooks or other sources, make sure you have the right to do so.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ps" id="beta">
+    <div class="sh"><span class="sn">5</span> Beta status &amp; changes</div>
+    <div class="sb">
+      <div class="hb yellow">&#9888;&#65039; <strong>My Study Buddy is currently in beta.</strong> This means the app is actively being developed, tested, and improved based on user feedback. Some features may be incomplete, change, or occasionally not work as expected.</div>
+      <p>We are transparent about this. The beta notice shown on the site is intentional &#8212; we want users to know they are helping shape the final product, and we genuinely appreciate that participation.</p>
+      <p>We may update, add, or remove features at any time. We will always communicate significant changes through the site. Our commitment is that the core study functionality will remain free.</p>
+      <p>We do not guarantee 100% uptime. GitHub Pages, our host, occasionally has maintenance windows. We appreciate your patience.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ps" id="ip">
+    <div class="sh"><span class="sn">6</span> Intellectual property</div>
+    <div class="sb">
+      <p>The My Study Buddy name, logo, design, and pre-built free deck content are owned by the creators of My Study Buddy. You may not reproduce, copy, or redistribute our original materials without permission.</p>
+      <p>The free math, color, sight word, and Spanish number decks we provide are original works created for educational use. Teachers and parents are welcome to use them freely in educational settings &#8212; that&#8217;s exactly what they&#8217;re for.</p>
+      <div class="hb teal">&#128218; Free decks are free to use in classrooms and homes. That&#8217;s the whole point.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ps" id="liability">
+    <div class="sh"><span class="sn">7</span> Limitation of liability</div>
+    <div class="sb">
+      <p>My Study Buddy is provided &#8220;as is&#8221; and &#8220;as available&#8221; without warranties of any kind. While we work hard to keep it reliable and accurate, we cannot guarantee the app will always be error-free or available.</p>
+      <div class="hb">
+        <strong>We are not liable for:</strong><br><br>
+        &#8226; Loss of study data due to browser clearing, device changes, or technical issues &#8212; always export important decks<br>
+        &#8226; Any educational outcomes resulting from use of the app<br>
+        &#8226; Temporary unavailability due to GitHub Pages maintenance<br>
+        &#8226; Content errors in free decks &#8212; if you spot a mistake, please tell us!
+      </div>
+      <p>Our sincere recommendation: use the CSV export feature regularly to back up decks you care about. Until cloud sync is available, your browser is the only copy.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ps" id="privacy">
+    <div class="sh"><span class="sn">8</span> Privacy</div>
+    <div class="sb">
+      <p>Our full Privacy Policy is available at <a href="privacy.html" style="color:var(--purple);font-weight:700;">privacy.html</a>. The key points:</p>
+      <div class="hb green">
+        &#10003; We do not sell your data<br>
+        &#10003; Your decks are stored locally on your device &#8212; we never see them<br>
+        &#10003; Email feedback is used only to reply to you<br>
+        &#10003; The app is safe for children
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ps" id="contact-t">
+    <div class="sh"><span class="sn">9</span> Contact us</div>
+    <div class="sb">
+      <p>Questions about these terms? Ideas for the app? Found a bug? We&#8217;d genuinely love to hear from you.</p>
+      <p>Email: <a href="mailto:hello@mystudybuddy.app" style="color:var(--purple);font-weight:700;">hello@mystudybuddy.app</a></p>
+    </div>
+  </div>
+
+  <!-- FEEDBACK FORM -->
+  <div class="feedback-section">
+    <div style="font-family:'Boogaloo',cursive;font-size:1.5rem;margin-bottom:0.4rem;">&#128172; Questions or Suggestions?</div>
+    <div style="font-size:0.88rem;color:var(--muted);font-weight:600;margin-bottom:1.5rem;line-height:1.6;">Have a question about our terms, a great idea for a feature, or spotted something we got wrong? We read every message.</div>
+    <div class="form-group">
+      <label class="form-label">Your email <span style="color:var(--muted);font-weight:600;">(only if you want a reply)</span></label>
+      <input class="form-input" id="feedEmail2" type="email" placeholder="you@example.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Your message</label>
+      <textarea class="form-textarea" id="feedMessage2" placeholder="Terms question, feature idea, bug report, or just a hello..."></textarea>
+      <div class="form-hint">Sent to hello@mystudybuddy.app. We read every one.</div>
+    </div>
+    <button class="btn btn-primary" onclick="sendFeedback2()" style="background:var(--teal);border-color:#0D9488;box-shadow:0 3px 0 #0D9488;padding:0.7rem 1.8rem;font-size:0.95rem;">&#128140; Send Message</button>
+    <div class="form-success" id="formSuccess2">&#127881; Thanks! We&#8217;ll get back to you soon.</div>
+    <div style="margin-top:1rem;font-size:0.78rem;color:var(--muted);font-weight:600;">Or email directly: <a href="mailto:hello@mystudybuddy.app" style="color:var(--purple);">hello@mystudybuddy.app</a></div>
+  </div>
+
+  <div class="hb teal" style="text-align:center;">&#128218; These terms exist to set clear, fair expectations &#8212; not to protect us from our users. We&#8217;re on the same team.</div>
+
+</div>
+
+<footer>
+  <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
+  <a href="app.html">App</a> &nbsp;&middot;&nbsp;
+  <a href="free-decks.html">Free Decks</a> &nbsp;&middot;&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+  <a href="terms.html">Terms of Use</a> &nbsp;&middot;&nbsp;
+  <a href="mailto:hello@mystudybuddy.app">Contact</a>
+  &nbsp;&middot;&nbsp; &copy; 2026 My Study Buddy
+</footer>
+
+<script>
+function sendFeedback2(){
+  const email=document.getElementById('feedEmail2').value.trim();
+  const msg=document.getElementById('feedMessage2').value.trim();
+  if(!msg){alert('Please enter a message before sending.');return;}
+  const sub=encodeURIComponent('My Study Buddy \u2014 Terms Question / Suggestion');
+  const body=encodeURIComponent((email?'Email: '+email+'\n\n':'')+msg);
+  window.location.href='mailto:hello@mystudybuddy.app?subject='+sub+'&body='+body;
+  document.getElementById('formSuccess2').classList.add('show');
+}
+</script>
+</body>
+</html>
